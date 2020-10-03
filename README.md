@@ -786,7 +786,7 @@ AQS同步队列构建过程
             s = t;
       }
       if (s != null)
-        //此处唤醒线程，线程唤醒后从挂起出开始执行，及从AbstractQueuedSynchronizer类private final boolean parkAndCheckInterrupt()方法处继续往下执行,AbstractQueuedSynchronizer#parkAndCheckInterrupt()
+        //此处唤醒线程，当线程拿到锁后，线程从挂起处开始执行，及从AbstractQueuedSynchronizer类private final boolean parkAndCheckInterrupt()方法处继续往下执行,AbstractQueuedSynchronizer#parkAndCheckInterrupt()
       	LockSupport.unpark(s.thread);
     }
 进入LockSupport类public static void unpark(Thread thread)方法，LockSupport#unpark()
@@ -817,4 +817,153 @@ private Node addWaiter(Node mode) {
   return node;
 }
 ```
+
+ReentrantLock时序图
+
+![ReentrantLock时序图](./ReentrantLock时序图.png)
+
+
+
+# 四、Condition
+
+​		Condition 是一个多线程协调通信的工具类，可以让某些线 程一起等待某个条件(condition)，只有满足条件时，线程才会被唤醒。
+
+因为wait()、notify()是和synchronized配合使用的，因此如果使用了显示锁Lock，就不能用了。所以显示锁要提供自己的等待/通知机制，Condition应运而生。Condition中的`await()`方法相当于Object的`wait()`方法，Condition中的`signal()`方法相当于Object的`notify()`方法，Condition中的`signalAll()`相当于Object的`notifyAll()`方法。不同的是，Object中的`wait(),notify(),notifyAll()`方法是和`"同步锁"`(synchronized关键字)捆绑使用的；而Condition是需要与`"互斥锁"/"共享锁"`捆绑使用的。
+
+**Condition源码分析**
+
+​		调用 Condition的await()方法(或者以await开头的方法)， 会使当前线程进入等待队列并释放锁，同时线程状态变为等待状态。当从 await()方法返回时，当前线程一定获取了Condition 相关联的锁。
+
+```java
+//进入AbstractQueuedSynchronizer类public final void await() throws InterruptedException方法，AbstractQueuedSynchronizer#await()
+	condition.await();//阻塞(1. 释放锁, 2.阻塞当前线程, FIFO（单向、双向）)
+	//源码
+  public final void await() throws InterruptedException {
+    if (Thread.interrupted()) //表示await允许被 中断
+      throw new InterruptedException();
+    Node node = addConditionWaiter(); //创建一个 新的节点，节点状态为 condition，采用的数据结构仍然是链
+     表
+    int savedState = fullyRelease(node); //释放当前的锁，得到锁的状态，并唤醒 AQS 队列中的一个线程 
+    int interruptMode = 0;
+    //如果当前节点没有在同步队列上，即还没有被 signal， 则将当前线程阻塞
+    while (!isOnSyncQueue(node)) {//判断这个节点 是否在 AQS 队列上，第一次判断的是 false，因为前面已经释 放锁了
+      LockSupport.park(this); //通过 park 挂起当 前线程
+      if ((interruptMode = checkInterruptWhileWaiting(node)) != 0)
+      break; 
+    }
+    // 当这个线程醒来,会尝试拿锁, 当 acquireQueued 返回 false 就是拿到锁了.
+    // interruptMode != THROW_IE -> 表示这个线程 没有成功将 node 入队,但 signal 执行了 enq 方法让其入 队了.
+    // 将这个变量设置成 REINTERRUPT.
+    if (acquireQueued(node, savedState) &&
+      interruptMode != THROW_IE) interruptMode = REINTERRUPT;
+    // 如果 node 的下一个等待者不是 null, 则进行清理, 清理 Condition 队列上的节点.
+    // 如果是 null ,就没有什么好清理的了.
+    if (node.nextWaiter != null) // clean up if cancelled
+      unlinkCancelledWaiters();
+    // 如果线程被中断了,需要抛出异常.或者什么都不做 
+    if (interruptMode != 0)
+      reportInterruptAfterWait(interruptMode);
+  }
+
+进入AbstractQueuedSynchronizer内部类ConditionObject类private Node addConditionWaiter()方法，AbstractQueuedSynchronizer.ConditionObject#addConditionWaiter()
+  Node node = addConditionWaiter();
+
+//回到AbstractQueuedSynchronizer类public final void await() throws InterruptedException方法，AbstractQueuedSynchronizer#await()，继续执行
+	//释放锁，诺是重入锁，一次释放完
+	int savedState = fullyRelease(node);
+	继续调用AbstractQueuedSynchronizer类方法
+  1.isOnSyncQueue(node)方法
+   //如果当前节点没有在同步队列上，即还没有被signal，则将当前线程阻塞
+    while (!isOnSyncQueue(node))
+	2.private boolean findNodeFromTail(Node node)方法
+    return findNodeFromTail(node);
+进入LockSupport类public static void park(Object blocker)方法
+  //此处线程挂起，等待唤醒后继续往下执行
+  LockSupport.park(this);
+
+//进入AbstractQueuedSynchronizer类public final void signal()方法，AbstractQueuedSynchronizer#signal()
+	condition.signal();//唤醒阻塞状态的线程
+	//源码
+	public final void signal() {
+    //判断执行线程是否当前线程
+    if (!isHeldExclusively())
+      throw new IllegalMonitorStateException();
+    Node first = firstWaiter;
+    if (first != null)
+      doSignal(first);
+  }
+	继续调用AbstractQueuedSynchronizer类方法
+  1.private void doSignal(Node first)方法
+    doSignal(first);
+	2.final boolean transferForSignal(Node node)方法
+    //从Condition队列转义到AQS队列，加入AQS队列后，就有机会继续竞争锁
+    while (!transferForSignal(first) &&
+                     (first = firstWaiter) != null);
+		
+进入LockSupport类public static void unpark(Thread thread)方法，LockSupport#unpark()
+  //唤醒线程，当线程拿到锁后，继续执行未完成逻辑
+	LockSupport.unpark(node.thread);
+
+//回到AbstractQueuedSynchronizer类public final void await() throws InterruptedException方法，AbstractQueuedSynchronizer#await()
+	//检查挂起过程中是否有中断过
+	if ((interruptMode = checkInterruptWhileWaiting(node)) != 0)
+  继续调用AbstractQueuedSynchronizer类方法
+  1.final boolean transferAfterCancelledWait(Node node)方法
+    return Thread.interrupted() ?
+                (transferAfterCancelledWait(node) ? THROW_IE : REINTERRUPT) :
+                0;
+	//源码
+	final boolean transferAfterCancelledWait(Node node) {
+    //中断唤醒情况，Condition队列未修改，因为在unpark时候已经做过一次修改，说明不是unpark唤醒，而是中断唤醒,查看hotspot源码可发现，在os_linux.cpp文件中
+    if (node.compareAndSetWaitStatus(Node.CONDITION, 0)) {
+      enq(node);
+      return true;
+    }
+    /*
+         * If we lost out to a signal(), then we can't proceed
+         * until it finishes its enq().  Cancelling during an
+         * incomplete transfer is both rare and transient, so just
+         * spin.
+         */
+    while (!isOnSyncQueue(node))
+      Thread.yield();
+    return false;
+  }
+  os_linux.cpp源码
+  void os::interrupt(Thread* thread) {
+    assert(Thread::current() == thread || Threads_lock->owned_by_self(),
+      "possibility of dangling Thread pointer");
+
+    OSThread* osthread = thread->osthread();
+
+    if (!osthread->interrupted()) {
+      osthread->set_interrupted(true);
+      // More than one thread can get here with the same value of osthread,
+      // resulting in multiple notifications.  We do, however, want the store
+      // to interrupted() to be visible to other threads before we execute unpark().
+      OrderAccess::fence();
+      ParkEvent * const slp = thread->_SleepEvent ;
+      if (slp != NULL) slp->unpark() ;
+    }
+
+    // For JSR166. Unpark even if interrupt status already was set
+    if (thread->is_Java_thread())
+      ((JavaThread*)thread)->parker()->unpark();
+
+    ParkEvent * ev = thread->_ParkEvent ;
+    if (ev != NULL) ev->unpark() ; //此处调用unpark
+  }
+	2.final boolean acquireQueued(final Node node, int arg)方法
+    //竞争锁并判断中断
+    if (acquireQueued(node, savedState) && interruptMode != THROW_IE)
+
+```
+
+Condition队列
+
+![Condition队列](./Condition队列.png)
+
+Condition时序图
+
+![Condition时序图](./Condition时序图.png)
 

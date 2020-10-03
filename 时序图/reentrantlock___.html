@@ -1,0 +1,596 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <title>ReentrantLock时序图</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <link href="resources/css/axure_rp_page.css" type="text/css" rel="stylesheet"/>
+    <link href="data/styles.css" type="text/css" rel="stylesheet"/>
+    <link href="files/reentrantlock___/styles.css" type="text/css" rel="stylesheet"/>
+    <script src="resources/scripts/jquery-3.2.1.min.js"></script>
+    <script src="resources/scripts/axure/axQuery.js"></script>
+    <script src="resources/scripts/axure/globals.js"></script>
+    <script src="resources/scripts/axutils.js"></script>
+    <script src="resources/scripts/axure/annotation.js"></script>
+    <script src="resources/scripts/axure/axQuery.std.js"></script>
+    <script src="resources/scripts/axure/doc.js"></script>
+    <script src="resources/scripts/messagecenter.js"></script>
+    <script src="resources/scripts/axure/events.js"></script>
+    <script src="resources/scripts/axure/recording.js"></script>
+    <script src="resources/scripts/axure/action.js"></script>
+    <script src="resources/scripts/axure/expr.js"></script>
+    <script src="resources/scripts/axure/geometry.js"></script>
+    <script src="resources/scripts/axure/flyout.js"></script>
+    <script src="resources/scripts/axure/model.js"></script>
+    <script src="resources/scripts/axure/repeater.js"></script>
+    <script src="resources/scripts/axure/sto.js"></script>
+    <script src="resources/scripts/axure/utils.temp.js"></script>
+    <script src="resources/scripts/axure/variables.js"></script>
+    <script src="resources/scripts/axure/drag.js"></script>
+    <script src="resources/scripts/axure/move.js"></script>
+    <script src="resources/scripts/axure/visibility.js"></script>
+    <script src="resources/scripts/axure/style.js"></script>
+    <script src="resources/scripts/axure/adaptive.js"></script>
+    <script src="resources/scripts/axure/tree.js"></script>
+    <script src="resources/scripts/axure/init.temp.js"></script>
+    <script src="resources/scripts/axure/legacy.js"></script>
+    <script src="resources/scripts/axure/viewer.js"></script>
+    <script src="resources/scripts/axure/math.js"></script>
+    <script src="resources/scripts/axure/jquery.nicescroll.min.js"></script>
+    <script src="data/document.js"></script>
+    <script src="files/reentrantlock___/data.js"></script>
+    <script type="text/javascript">
+      $axure.utils.getTransparentGifPath = function() { return 'resources/images/transparent.gif'; };
+      $axure.utils.getOtherPath = function() { return 'resources/Other.html'; };
+      $axure.utils.getReloadPath = function() { return 'resources/reload.html'; };
+    </script>
+  </head>
+  <body>
+    <div id="base" class="">
+
+      <!-- Unnamed (Rectangle) -->
+      <div id="u20" class="ax_default box_1">
+        <div id="u20_div" class=""></div>
+        <div id="u20_text" class="text ">
+          <p><span>ReentrantLock</span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (Vertical Line) -->
+      <div id="u21" class="ax_default line">
+        <img id="u21_img" class="img " src="images/reentrantlock___/u21.svg"/>
+        <div id="u21_text" class="text " style="display:none; visibility: hidden">
+          <p></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (Rectangle) -->
+      <div id="u22" class="ax_default box_1">
+        <div id="u22_div" class=""></div>
+        <div id="u22_text" class="text ">
+          <p><span>NonfairSync</span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (Vertical Line) -->
+      <div id="u23" class="ax_default line">
+        <img id="u23_img" class="img " src="images/reentrantlock___/u21.svg"/>
+        <div id="u23_text" class="text " style="display:none; visibility: hidden">
+          <p></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (Rectangle) -->
+      <div id="u24" class="ax_default box_1">
+        <div id="u24_div" class=""></div>
+        <div id="u24_text" class="text " style="display:none; visibility: hidden">
+          <p></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (Rectangle) -->
+      <div id="u25" class="ax_default label">
+        <div id="u25_div" class=""></div>
+        <div id="u25_text" class="text ">
+          <p><span>lock()</span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (Rectangle) -->
+      <div id="u26" class="ax_default label">
+        <div id="u26_div" class=""></div>
+        <div id="u26_text" class="text ">
+          <p><span>lock</span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (Line) -->
+      <div id="u27" class="compound ax_default arrow" data-height="1" data-width="121" CompoundMode="true">
+        <img id="u27_img" class="singleImg img " src="images/reentrantlock___/u27.svg"/>
+        <div id="u27p000" class="ax_vector_shape" WidgetTopLeftX="-0.476190476190476" WidgetTopLeftY="0" WidgetTopRightX="0.484126984126984" WidgetTopRightY="0" WidgetBottomLeftX="-0.476190476190476" WidgetBottomLeftY="0.166666666666667" WidgetBottomRightX="0.484126984126984" WidgetBottomRightY="0.166666666666667">
+          <img id="u27p000_img" class="img " src="images/reentrantlock___/u27p000.svg"/>
+        </div>
+        <div id="u27p001" class="ax_vector_shape" WidgetTopLeftX="-0.25" WidgetTopLeftY="-0.25" WidgetTopRightX="30" WidgetTopRightY="-0.25" WidgetBottomLeftX="-0.25" WidgetBottomLeftY="0" WidgetBottomRightX="30" WidgetBottomRightY="0">
+          <img id="u27p001_img" class="img " src="images/reentrantlock___/u27p001.svg"/>
+        </div>
+        <div id="u27p002" class="ax_vector_shape" WidgetTopLeftX="5.85" WidgetTopLeftY="0.05" WidgetTopRightX="-0.2" WidgetTopRightY="0.05" WidgetBottomLeftX="5.85" WidgetBottomLeftY="0" WidgetBottomRightX="-0.2" WidgetBottomRightY="0">
+          <img id="u27p002_img" class="img " src="images/reentrantlock___/u27p002.svg"/>
+        </div>
+        <div id="u27_text" class="text " style="display:none; visibility: hidden">
+          <p></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (Rectangle) -->
+      <div id="u28" class="ax_default box_1">
+        <div id="u28_div" class=""></div>
+        <div id="u28_text" class="text " style="display:none; visibility: hidden">
+          <p></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (Shape) -->
+      <div id="u29" class="ax_default arrow">
+        <img id="u29_img" class="img " src="images/reentrantlock___/u29.svg"/>
+        <div id="u29_text" class="text " style="display:none; visibility: hidden">
+          <p></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (Rectangle) -->
+      <div id="u30" class="ax_default box_1">
+        <div id="u30_div" class=""></div>
+        <div id="u30_text" class="text " style="display:none; visibility: hidden">
+          <p></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (Rectangle) -->
+      <div id="u31" class="ax_default box_1">
+        <div id="u31_div" class=""></div>
+        <div id="u31_text" class="text ">
+          <p><span>AbstractQueuedSynchronizer</span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (Vertical Line) -->
+      <div id="u32" class="ax_default line">
+        <img id="u32_img" class="img " src="images/reentrantlock___/u21.svg"/>
+        <div id="u32_text" class="text " style="display:none; visibility: hidden">
+          <p></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (Rectangle) -->
+      <div id="u33" class="ax_default box_1">
+        <div id="u33_div" class=""></div>
+        <div id="u33_text" class="text " style="display:none; visibility: hidden">
+          <p></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (Rectangle) -->
+      <div id="u34" class="ax_default paragraph">
+        <div id="u34_div" class=""></div>
+        <div id="u34_text" class="text ">
+          <p><span>compareAndSetState</span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (Line) -->
+      <div id="u35" class="compound ax_default arrow" data-height="1" data-width="161" CompoundMode="true">
+        <img id="u35_img" class="singleImg img " src="images/reentrantlock___/u35.svg"/>
+        <div id="u35p000" class="ax_vector_shape" WidgetTopLeftX="-0.487951807228916" WidgetTopLeftY="0" WidgetTopRightX="0.481927710843373" WidgetTopRightY="0" WidgetBottomLeftX="-0.487951807228916" WidgetBottomLeftY="0.166666666666667" WidgetBottomRightX="0.481927710843373" WidgetBottomRightY="0.166666666666667">
+          <img id="u35p000_img" class="img " src="images/reentrantlock___/u35p000.svg"/>
+        </div>
+        <div id="u35p001" class="ax_vector_shape" WidgetTopLeftX="0" WidgetTopLeftY="-0.25" WidgetTopRightX="40.25" WidgetTopRightY="-0.25" WidgetBottomLeftX="0" WidgetBottomLeftY="0" WidgetBottomRightX="40.25" WidgetBottomRightY="0">
+          <img id="u35p001_img" class="img " src="images/reentrantlock___/u35p001.svg"/>
+        </div>
+        <div id="u35p002" class="ax_vector_shape" WidgetTopLeftX="7.13636363636364" WidgetTopLeftY="0.05" WidgetTopRightX="-0.181818181818182" WidgetTopRightY="0.05" WidgetBottomLeftX="7.13636363636364" WidgetBottomLeftY="0" WidgetBottomRightX="-0.181818181818182" WidgetBottomRightY="0">
+          <img id="u35p002_img" class="img " src="images/reentrantlock___/u35p002.svg"/>
+        </div>
+        <div id="u35_text" class="text " style="display:none; visibility: hidden">
+          <p></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (Rectangle) -->
+      <div id="u36" class="ax_default box_1">
+        <div id="u36_div" class=""></div>
+        <div id="u36_text" class="text ">
+          <p><span>LockSupport</span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (Vertical Line) -->
+      <div id="u37" class="ax_default line">
+        <img id="u37_img" class="img " src="images/reentrantlock___/u21.svg"/>
+        <div id="u37_text" class="text " style="display:none; visibility: hidden">
+          <p></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (Rectangle) -->
+      <div id="u38" class="ax_default box_1">
+        <div id="u38_div" class=""></div>
+        <div id="u38_text" class="text " style="display:none; visibility: hidden">
+          <p></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (Line) -->
+      <div id="u39" class="compound ax_default arrow" data-height="1" data-width="161" CompoundMode="true">
+        <img id="u39_img" class="singleImg img " src="images/reentrantlock___/u35.svg"/>
+        <div id="u39p000" class="ax_vector_shape" WidgetTopLeftX="-0.487951807228916" WidgetTopLeftY="-0.166666666666667" WidgetTopRightX="0.481927710843373" WidgetTopRightY="-0.166666666666667" WidgetBottomLeftX="-0.487951807228916" WidgetBottomLeftY="0" WidgetBottomRightX="0.481927710843373" WidgetBottomRightY="0">
+          <img id="u39p000_img" class="img " src="images/reentrantlock___/u39p000.svg"/>
+        </div>
+        <div id="u39p001" class="ax_vector_shape" WidgetTopLeftX="0" WidgetTopLeftY="-0.5" WidgetTopRightX="40.25" WidgetTopRightY="-0.5" WidgetBottomLeftX="0" WidgetBottomLeftY="0" WidgetBottomRightX="40.25" WidgetBottomRightY="0">
+          <img id="u39p001_img" class="img " src="images/reentrantlock___/u39p001.svg"/>
+        </div>
+        <div id="u39p002" class="ax_vector_shape" WidgetTopLeftX="7.13636363636364" WidgetTopLeftY="0" WidgetTopRightX="-0.181818181818182" WidgetTopRightY="0" WidgetBottomLeftX="7.13636363636364" WidgetBottomLeftY="-0.05" WidgetBottomRightX="-0.181818181818182" WidgetBottomRightY="-0.05">
+          <img id="u39p002_img" class="img " src="images/reentrantlock___/u39p002.svg"/>
+        </div>
+        <div id="u39_text" class="text " style="display:none; visibility: hidden">
+          <p></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (Rectangle) -->
+      <div id="u40" class="ax_default paragraph">
+        <div id="u40_div" class=""></div>
+        <div id="u40_text" class="text ">
+          <p><span style="font-family:'ArialMT', 'Arial', sans-serif;">acquire</span><span style="font-family:'PingFangSC-Regular', 'PingFang SC', sans-serif;">(获取锁失败)</span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (Rectangle) -->
+      <div id="u41" class="ax_default box_1">
+        <div id="u41_div" class=""></div>
+        <div id="u41_text" class="text " style="display:none; visibility: hidden">
+          <p></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (Line) -->
+      <div id="u42" class="compound ax_default arrow" data-height="1" data-width="161" CompoundMode="true">
+        <img id="u42_img" class="singleImg img " src="images/reentrantlock___/u35.svg"/>
+        <div id="u42p000" class="ax_vector_shape" WidgetTopLeftX="-0.481927710843373" WidgetTopLeftY="-0.166666666666667" WidgetTopRightX="0.487951807228916" WidgetTopRightY="-0.166666666666667" WidgetBottomLeftX="-0.481927710843373" WidgetBottomLeftY="0" WidgetBottomRightX="0.487951807228916" WidgetBottomRightY="0">
+          <img id="u42p000_img" class="img " src="images/reentrantlock___/u42p000.svg"/>
+        </div>
+        <div id="u42p001" class="ax_vector_shape" WidgetTopLeftX="-0.25" WidgetTopLeftY="0" WidgetTopRightX="-40.5" WidgetTopRightY="0" WidgetBottomLeftX="-0.25" WidgetBottomLeftY="-0.25" WidgetBottomRightX="-40.5" WidgetBottomRightY="-0.25">
+          <img id="u42p001_img" class="img " src="images/reentrantlock___/u42p001.svg"/>
+        </div>
+        <div id="u42p002" class="ax_vector_shape" WidgetTopLeftX="7.85" WidgetTopLeftY="0" WidgetTopRightX="-0.2" WidgetTopRightY="0" WidgetBottomLeftX="7.85" WidgetBottomLeftY="-0.05" WidgetBottomRightX="-0.2" WidgetBottomRightY="-0.05">
+          <img id="u42p002_img" class="img " src="images/reentrantlock___/u42p002.svg"/>
+        </div>
+        <div id="u42_text" class="text " style="display:none; visibility: hidden">
+          <p></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (Rectangle) -->
+      <div id="u43" class="ax_default paragraph">
+        <div id="u43_div" class=""></div>
+        <div id="u43_text" class="text ">
+          <p><span>tryAcquire</span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (Rectangle) -->
+      <div id="u44" class="ax_default box_1">
+        <div id="u44_div" class=""></div>
+        <div id="u44_text" class="text " style="display:none; visibility: hidden">
+          <p></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (Shape) -->
+      <div id="u45" class="ax_default arrow">
+        <img id="u45_img" class="img " src="images/reentrantlock___/u45.svg"/>
+        <div id="u45_text" class="text " style="display:none; visibility: hidden">
+          <p></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (Rectangle) -->
+      <div id="u46" class="ax_default paragraph">
+        <div id="u46_div" class=""></div>
+        <div id="u46_text" class="text ">
+          <p><span>nonfairTryAcquire</span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (Rectangle) -->
+      <div id="u47" class="ax_default box_1">
+        <div id="u47_div" class=""></div>
+        <div id="u47_text" class="text " style="display:none; visibility: hidden">
+          <p></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (Shape) -->
+      <div id="u48" class="ax_default arrow">
+        <img id="u48_img" class="img " src="images/reentrantlock___/u45.svg"/>
+        <div id="u48_text" class="text " style="display:none; visibility: hidden">
+          <p></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (Rectangle) -->
+      <div id="u49" class="ax_default paragraph">
+        <div id="u49_div" class=""></div>
+        <div id="u49_text" class="text ">
+          <p><span>addWaiter</span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (Rectangle) -->
+      <div id="u50" class="ax_default box_1">
+        <div id="u50_div" class=""></div>
+        <div id="u50_text" class="text " style="display:none; visibility: hidden">
+          <p></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (Shape) -->
+      <div id="u51" class="ax_default arrow">
+        <img id="u51_img" class="img " src="images/reentrantlock___/u45.svg"/>
+        <div id="u51_text" class="text " style="display:none; visibility: hidden">
+          <p></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (Rectangle) -->
+      <div id="u52" class="ax_default paragraph">
+        <div id="u52_div" class=""></div>
+        <div id="u52_text" class="text ">
+          <p><span>acquireQueued</span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (Rectangle) -->
+      <div id="u53" class="ax_default box_1">
+        <div id="u53_div" class=""></div>
+        <div id="u53_text" class="text " style="display:none; visibility: hidden">
+          <p></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (Shape) -->
+      <div id="u54" class="ax_default arrow">
+        <img id="u54_img" class="img " src="images/reentrantlock___/u45.svg"/>
+        <div id="u54_text" class="text " style="display:none; visibility: hidden">
+          <p></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (Rectangle) -->
+      <div id="u55" class="ax_default paragraph">
+        <div id="u55_div" class=""></div>
+        <div id="u55_text" class="text ">
+          <p><span style="font-family:'ArialMT', 'Arial', sans-serif;">shouldParkAfterFailedAcquire(</span><span style="font-family:'PingFangSC-Regular', 'PingFang SC', sans-serif;">再次获取锁失败，线程挂起</span><span style="font-family:'ArialMT', 'Arial', sans-serif;">)</span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (Rectangle) -->
+      <div id="u56" class="ax_default box_1">
+        <div id="u56_div" class=""></div>
+        <div id="u56_text" class="text " style="display:none; visibility: hidden">
+          <p></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (Shape) -->
+      <div id="u57" class="ax_default arrow">
+        <img id="u57_img" class="img " src="images/reentrantlock___/u45.svg"/>
+        <div id="u57_text" class="text " style="display:none; visibility: hidden">
+          <p></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (Rectangle) -->
+      <div id="u58" class="ax_default paragraph">
+        <div id="u58_div" class=""></div>
+        <div id="u58_text" class="text ">
+          <p><span>parkAndCheckInterrupt</span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (Rectangle) -->
+      <div id="u59" class="ax_default box_1">
+        <div id="u59_div" class=""></div>
+        <div id="u59_text" class="text " style="display:none; visibility: hidden">
+          <p></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (Shape) -->
+      <div id="u60" class="ax_default arrow">
+        <img id="u60_img" class="img " src="images/reentrantlock___/u29.svg"/>
+        <div id="u60_text" class="text " style="display:none; visibility: hidden">
+          <p></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (Rectangle) -->
+      <div id="u61" class="ax_default paragraph">
+        <div id="u61_div" class=""></div>
+        <div id="u61_text" class="text ">
+          <p><span>unlock</span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (Rectangle) -->
+      <div id="u62" class="ax_default paragraph">
+        <div id="u62_div" class=""></div>
+        <div id="u62_text" class="text ">
+          <p><span>release</span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (Rectangle) -->
+      <div id="u63" class="ax_default box_1">
+        <div id="u63_div" class=""></div>
+        <div id="u63_text" class="text " style="display:none; visibility: hidden">
+          <p></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (Line) -->
+      <div id="u64" class="compound ax_default arrow" data-height="1" data-width="306" CompoundMode="true">
+        <img id="u64_img" class="singleImg img " src="images/reentrantlock___/u64.svg"/>
+        <div id="u64p000" class="ax_vector_shape" WidgetTopLeftX="-0.490384615384615" WidgetTopLeftY="-0.166666666666667" WidgetTopRightX="0.490384615384615" WidgetTopRightY="-0.166666666666667" WidgetBottomLeftX="-0.490384615384615" WidgetBottomLeftY="0" WidgetBottomRightX="0.490384615384615" WidgetBottomRightY="0">
+          <img id="u64p000_img" class="img " src="images/reentrantlock___/u64p000.svg"/>
+        </div>
+        <div id="u64p001" class="ax_vector_shape" WidgetTopLeftX="-0.25" WidgetTopLeftY="-0.5" WidgetTopRightX="76.25" WidgetTopRightY="-0.5" WidgetBottomLeftX="-0.25" WidgetBottomLeftY="0" WidgetBottomRightX="76.25" WidgetBottomRightY="0">
+          <img id="u64p001_img" class="img " src="images/reentrantlock___/u64p001.svg"/>
+        </div>
+        <div id="u64p002" class="ax_vector_shape" WidgetTopLeftX="13.7272727272727" WidgetTopLeftY="0" WidgetTopRightX="-0.181818181818182" WidgetTopRightY="0" WidgetBottomLeftX="13.7272727272727" WidgetBottomLeftY="-0.05" WidgetBottomRightX="-0.181818181818182" WidgetBottomRightY="-0.05">
+          <img id="u64p002_img" class="img " src="images/reentrantlock___/u64p002.svg"/>
+        </div>
+        <div id="u64_text" class="text " style="display:none; visibility: hidden">
+          <p></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (Rectangle) -->
+      <div id="u65" class="ax_default box_1">
+        <div id="u65_div" class=""></div>
+        <div id="u65_text" class="text " style="display:none; visibility: hidden">
+          <p></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (Shape) -->
+      <div id="u66" class="ax_default arrow">
+        <img id="u66_img" class="img " src="images/reentrantlock___/u45.svg"/>
+        <div id="u66_text" class="text " style="display:none; visibility: hidden">
+          <p></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (Rectangle) -->
+      <div id="u67" class="ax_default box_1">
+        <div id="u67_div" class=""></div>
+        <div id="u67_text" class="text " style="display:none; visibility: hidden">
+          <p></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (Line) -->
+      <div id="u68" class="compound ax_default arrow" data-height="1" data-width="307" CompoundMode="true">
+        <img id="u68_img" class="singleImg img " src="images/reentrantlock___/u68.svg"/>
+        <div id="u68p000" class="ax_vector_shape" WidgetTopLeftX="-0.490384615384615" WidgetTopLeftY="-0.166666666666667" WidgetTopRightX="0.493589743589744" WidgetTopRightY="-0.166666666666667" WidgetBottomLeftX="-0.490384615384615" WidgetBottomLeftY="0" WidgetBottomRightX="0.493589743589744" WidgetBottomRightY="0">
+          <img id="u68p000_img" class="img " src="images/reentrantlock___/u68p000.svg"/>
+        </div>
+        <div id="u68p001" class="ax_vector_shape" WidgetTopLeftX="-0.25" WidgetTopLeftY="0" WidgetTopRightX="-77" WidgetTopRightY="0" WidgetBottomLeftX="-0.25" WidgetBottomLeftY="-0.25" WidgetBottomRightX="-77" WidgetBottomRightY="-0.25">
+          <img id="u68p001_img" class="img " src="images/reentrantlock___/u68p001.svg"/>
+        </div>
+        <div id="u68p002" class="ax_vector_shape" WidgetTopLeftX="15.15" WidgetTopLeftY="0" WidgetTopRightX="-0.2" WidgetTopRightY="0" WidgetBottomLeftX="15.15" WidgetBottomLeftY="-0.05" WidgetBottomRightX="-0.2" WidgetBottomRightY="-0.05">
+          <img id="u68p002_img" class="img " src="images/reentrantlock___/u68p002.svg"/>
+        </div>
+        <div id="u68_text" class="text " style="display:none; visibility: hidden">
+          <p></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (Rectangle) -->
+      <div id="u69" class="ax_default paragraph">
+        <div id="u69_div" class=""></div>
+        <div id="u69_text" class="text ">
+          <p><span>tryRelease</span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (Rectangle) -->
+      <div id="u70" class="ax_default paragraph">
+        <div id="u70_div" class=""></div>
+        <div id="u70_text" class="text ">
+          <p><span>unparkSuccessor</span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (Line) -->
+      <div id="u71" class="compound ax_default arrow" data-height="1" data-width="383" CompoundMode="true">
+        <img id="u71_img" class="singleImg img " src="images/reentrantlock___/u71.svg"/>
+        <div id="u71p000" class="ax_vector_shape" WidgetTopLeftX="-0.494845360824742" WidgetTopLeftY="-0.166666666666667" WidgetTopRightX="0.492268041237113" WidgetTopRightY="-0.166666666666667" WidgetBottomLeftX="-0.494845360824742" WidgetBottomLeftY="0" WidgetBottomRightX="0.492268041237113" WidgetBottomRightY="0">
+          <img id="u71p000_img" class="img " src="images/reentrantlock___/u71p000.svg"/>
+        </div>
+        <div id="u71p001" class="ax_vector_shape" WidgetTopLeftX="0" WidgetTopLeftY="-0.5" WidgetTopRightX="95.75" WidgetTopRightY="-0.5" WidgetBottomLeftX="0" WidgetBottomLeftY="0" WidgetBottomRightX="95.75" WidgetBottomRightY="0">
+          <img id="u71p001_img" class="img " src="images/reentrantlock___/u71p001.svg"/>
+        </div>
+        <div id="u71p002" class="ax_vector_shape" WidgetTopLeftX="17.2272727272727" WidgetTopLeftY="0" WidgetTopRightX="-0.181818181818182" WidgetTopRightY="0" WidgetBottomLeftX="17.2272727272727" WidgetBottomLeftY="-0.05" WidgetBottomRightX="-0.181818181818182" WidgetBottomRightY="-0.05">
+          <img id="u71p002_img" class="img " src="images/reentrantlock___/u71p002.svg"/>
+        </div>
+        <div id="u71_text" class="text " style="display:none; visibility: hidden">
+          <p></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (Rectangle) -->
+      <div id="u72" class="ax_default paragraph">
+        <div id="u72_div" class=""></div>
+        <div id="u72_text" class="text ">
+          <p><span>park</span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (Rectangle) -->
+      <div id="u73" class="ax_default box_1">
+        <div id="u73_div" class=""></div>
+        <div id="u73_text" class="text " style="display:none; visibility: hidden">
+          <p></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (Line) -->
+      <div id="u74" class="compound ax_default arrow" data-height="1" data-width="393" CompoundMode="true">
+        <img id="u74_img" class="singleImg img " src="images/reentrantlock___/u74.svg"/>
+        <div id="u74p000" class="ax_vector_shape" WidgetTopLeftX="-0.494974874371859" WidgetTopLeftY="-0.166666666666667" WidgetTopRightX="0.492462311557789" WidgetTopRightY="-0.166666666666667" WidgetBottomLeftX="-0.494974874371859" WidgetBottomLeftY="0" WidgetBottomRightX="0.492462311557789" WidgetBottomRightY="0">
+          <img id="u74p000_img" class="img " src="images/reentrantlock___/u74p000.svg"/>
+        </div>
+        <div id="u74p001" class="ax_vector_shape" WidgetTopLeftX="0" WidgetTopLeftY="-0.5" WidgetTopRightX="98.25" WidgetTopRightY="-0.5" WidgetBottomLeftX="0" WidgetBottomLeftY="0" WidgetBottomRightX="98.25" WidgetBottomRightY="0">
+          <img id="u74p001_img" class="img " src="images/reentrantlock___/u74p001.svg"/>
+        </div>
+        <div id="u74p002" class="ax_vector_shape" WidgetTopLeftX="17.6818181818182" WidgetTopLeftY="0" WidgetTopRightX="-0.181818181818182" WidgetTopRightY="0" WidgetBottomLeftX="17.6818181818182" WidgetBottomLeftY="-0.05" WidgetBottomRightX="-0.181818181818182" WidgetBottomRightY="-0.05">
+          <img id="u74p002_img" class="img " src="images/reentrantlock___/u74p002.svg"/>
+        </div>
+        <div id="u74_text" class="text " style="display:none; visibility: hidden">
+          <p></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (Rectangle) -->
+      <div id="u75" class="ax_default paragraph">
+        <div id="u75_div" class=""></div>
+        <div id="u75_text" class="text ">
+          <p><span>unpark</span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (Shape) -->
+      <div id="u76" class="compound ax_default arrow" data-height="297" data-width="56" CompoundMode="true">
+        <img id="u76_img" class="singleImg img " src="images/reentrantlock___/u76.svg"/>
+        <div id="u76p000" class="ax_vector_shape" WidgetTopLeftX="-0.517241379310345" WidgetTopLeftY="-49.5" WidgetTopRightX="0.448275862068966" WidgetTopRightY="-49.5" WidgetBottomLeftX="-0.517241379310345" WidgetBottomLeftY="0" WidgetBottomRightX="0.448275862068966" WidgetBottomRightY="0">
+          <img id="u76p000_img" class="img " src="images/reentrantlock___/u76p000.svg"/>
+        </div>
+        <div id="u76p001" class="ax_vector_shape" WidgetTopLeftX="0.493377483443709" WidgetTopLeftY="-9.33333333333333" WidgetTopRightX="0.493377483443709" WidgetTopRightY="0" WidgetBottomLeftX="-0.490066225165563" WidgetBottomLeftY="-9.33333333333333" WidgetBottomRightX="-0.490066225165563" WidgetBottomRightY="0">
+          <img id="u76p001_img" class="img " src="images/reentrantlock___/u76p001.svg"/>
+        </div>
+        <div id="u76p002" class="ax_vector_shape" WidgetTopLeftX="0.451612903225806" WidgetTopLeftY="0.166666666666647" WidgetTopRightX="-0.451612903225806" WidgetTopRightY="0.166666666666648" WidgetBottomLeftX="0.451612903225806" WidgetBottomLeftY="-49.3333333333333" WidgetBottomRightX="-0.451612903225807" WidgetBottomRightY="-49.3333333333333">
+          <img id="u76p002_img" class="img " src="images/reentrantlock___/u76p002.svg"/>
+        </div>
+        <div id="u76p003" class="ax_vector_shape" WidgetTopLeftX="-1.25" WidgetTopLeftY="-148.5" WidgetTopRightX="12.75" WidgetTopRightY="-148.5" WidgetBottomLeftX="-1.25" WidgetBottomLeftY="0" WidgetBottomRightX="12.75" WidgetBottomRightY="0">
+          <img id="u76p003_img" class="img " src="images/reentrantlock___/u76p003.svg"/>
+        </div>
+        <div id="u76p004" class="ax_vector_shape" WidgetTopLeftX="-0.181818181818182" WidgetTopLeftY="0" WidgetTopRightX="2.36363636363636" WidgetTopRightY="0" WidgetBottomLeftX="-0.181818181818182" WidgetBottomLeftY="14.85" WidgetBottomRightX="2.36363636363636" WidgetBottomRightY="14.85">
+          <img id="u76p004_img" class="img " src="images/reentrantlock___/u76p004.svg"/>
+        </div>
+        <div id="u76_text" class="text " style="display:none; visibility: hidden">
+          <p></p>
+        </div>
+      </div>
+    </div>
+    <script src="resources/scripts/axure/ios.js"></script>
+  </body>
+</html>
